@@ -74,14 +74,21 @@ export default function RegisterPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-12 px-4">
       <div className="max-w-md mx-auto">
-        <Card>
-          <CardHeader>
-            <CardTitle>Student Registration</CardTitle>
+        <Card className="border-lime-100 shadow-md">
+          <CardHeader className="border-b border-lime-50">
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-10 h-10 rounded-full bg-lime-100 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-lime-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
+              <CardTitle>Student Registration</CardTitle>
+            </div>
             <CardDescription>
               Register your child to start their personalized learning journey
             </CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="pt-6">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField
@@ -91,9 +98,13 @@ export default function RegisterPage() {
                     <FormItem>
                       <FormLabel>Child's Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="Enter your child's name" {...field} />
+                        <Input 
+                          placeholder="Enter your child's name" 
+                          {...field} 
+                          className="border-lime-200 focus-visible:ring-lime-500/20"
+                        />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-red-500" />
                     </FormItem>
                   )}
                 />
@@ -109,9 +120,10 @@ export default function RegisterPage() {
                           type="number"
                           placeholder="Enter your child's age"
                           {...field}
+                          className="border-lime-200 focus-visible:ring-lime-500/20"
                         />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-red-500" />
                     </FormItem>
                   )}
                 />
@@ -122,9 +134,12 @@ export default function RegisterPage() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Learning Style</FormLabel>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <Select
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
                         <FormControl>
-                          <SelectTrigger>
+                          <SelectTrigger className="w-full border-lime-200 focus-visible:ring-lime-500/20">
                             <SelectValue placeholder="Select a learning style" />
                           </SelectTrigger>
                         </FormControl>
@@ -135,14 +150,14 @@ export default function RegisterPage() {
                           <SelectItem value="reading">Reading/Writing Learner</SelectItem>
                         </SelectContent>
                       </Select>
-                      <FormMessage />
+                      <FormMessage className="text-red-500" />
                     </FormItem>
                   )}
                 />
 
                 <Button 
                   type="submit" 
-                  className="w-full"
+                  className="w-full bg-lime-500 hover:bg-lime-600 text-white"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Submitting..." : "Submit Registration"}
