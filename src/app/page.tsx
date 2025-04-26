@@ -10,6 +10,10 @@ export default function Home() {
       <section className="relative bg-gradient-to-r from-lime-500 to-lime-600 text-white">
         <div className="absolute inset-0 opacity-10 bg-[url('/globe.svg')] bg-repeat"></div>
         <div className="max-w-6xl mx-auto px-4 py-24 sm:py-32 relative z-10">
+          <div className="flex items-center gap-3 mb-8">
+            <img src="/oogway-logo.svg" alt="Oogway AI Logo" className="h-12 w-12" />
+            <h2 className="text-3xl font-bold">Oogway AI</h2>
+          </div>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">

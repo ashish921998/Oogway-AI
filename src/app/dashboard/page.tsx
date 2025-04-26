@@ -234,7 +234,10 @@ export default function DashboardPage() {
       {/* Sidebar */}
       <div className="w-64 bg-white shadow-md hidden md:block">
         <div className="p-4 border-b">
-          <h2 className="text-xl font-bold text-lime-600">Oogway AI</h2>
+          <div className="flex items-center gap-2">
+            <img src="/oogway-logo.svg" alt="Oogway AI Logo" className="h-8 w-8" />
+            <h2 className="text-xl font-bold text-lime-600">Oogway AI</h2>
+          </div>
         </div>
         <div className="py-4">
           <div className="px-4 mb-6">
@@ -616,18 +619,18 @@ export default function DashboardPage() {
           )}
 
           {activeTab === "chatbot" && (
-            <Card>
+            <Card className="h-full">
               <CardHeader className="border-b border-gray-100">
                 <CardTitle>AI Learning Assistant</CardTitle>
                 <CardDescription>
                   Ask any questions about your lessons or get help with your studies
                 </CardDescription>
               </CardHeader>
-              <CardContent className="pt-6">
-                <div className="space-y-4">
+              <CardContent className="p-0">
+                <div className="flex flex-col h-[calc(100vh-12rem)]">
                   <div 
                     ref={chatContainerRef}
-                    className="h-[500px] overflow-y-auto space-y-4 p-4 border rounded-lg"
+                    className="flex-1 overflow-y-auto p-4 space-y-4"
                   >
                     {messages.length === 0 && (
                       <div className="text-center py-8">
@@ -662,7 +665,7 @@ export default function DashboardPage() {
                       </div>
                     ))}
                   </div>
-                  <form onSubmit={handleSubmit} className="flex gap-2">
+                  <form onSubmit={handleSubmit} className="border-t p-4 flex gap-2">
                     <Input
                       value={input}
                       placeholder="Type your message..."
