@@ -162,6 +162,18 @@ export default function RegisterPage() {
                 >
                   {isSubmitting ? "Submitting..." : "Submit Registration"}
                 </Button>
+                
+                <div className="mt-4 text-center">
+                  <p className="text-sm text-gray-600 mb-2">Not sure about your child's learning style?</p>
+                  <Button 
+                    type="button" 
+                    variant="outline"
+                    className="border-lime-300 hover:bg-lime-50 text-lime-700"
+                    onClick={() => router.push("/quiz/learning-style")}
+                  >
+                    Take Learning Style Quiz
+                  </Button>
+                </div>
               </form>
             </Form>
           </CardContent>
